@@ -16,6 +16,7 @@ document.addEventListener('mousemove', (e) => {
     document.body.appendChild(circle);
   }
 
+  
   const circleCenterX = mouseX - circleSize / 2;
   const circleCenterY = mouseY - circleSize / 2;
 
@@ -31,5 +32,53 @@ document.addEventListener('mousemove', (e) => {
   } else {
     circle.classList.remove('filter-invert');
   }
+});
+
+const containers = document.querySelectorAll('.circle-container');
+const scrollContainer = document.querySelector('.scroll-container');
+
+scrollContainer.addEventListener('scroll', () => {
+  const centerX = scrollContainer.scrollLeft + (scrollContainer.clientWidth / 2);
+  
+  containers.forEach(container => {
+    const containerCenterX = container.offsetLeft + (container.clientWidth / 2);
+    const distance = Math.abs(centerX - containerCenterX);
+
+    if (distance < container.clientWidth / 2) {
+      container.classList.add('active');
+    } else {
+      container.classList.remove('active');
+    }
+  });
+});
+
+// Initial check to activate the circle in the center on load
+window.addEventListener('load', () => {
+  scrollContainer.dispatchEvent(new Event('scroll'));
+});
+
+
+const typographyItems = document.querySelectorAll('.typography-item');
+const scrollContainerTypography = document.querySelector('.scroll-container-typography');
+
+scrollContainerTypography.addEventListener('scroll', () => {
+  const centerX = scrollContainerTypography.scrollLeft + (scrollContainerTypography.clientWidth / 2);
+  
+  typographyItems.forEach(item => {
+    const itemCenterX = item.offsetLeft + (item.clientWidth / 2);
+    const distance = Math.abs(centerX - itemCenterX);
+
+    if (distance < item.clientWidth / 2) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+});
+
+// Initial check to activate the circle in the center on load
+window.addEventListener('load', () => {
+  scrollContainer.dispatchEvent(new Event('scroll'));
+  scrollContainerTypography.dispatchEvent(new Event('scroll'));
 });
 

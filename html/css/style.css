@@ -168,7 +168,7 @@ header{text-align: center;}
         .box {
             border: 1px solid white; /* 테두리 추가 */
             box-sizing: border-box; /* 테두리가 요소의 크기를 변경하지 않도록 함 */
-             transition: background-color 0.3s; /* 색상 변화에 트랜지션 효과 추가 */
+             transition: background-color 0.3s ease-in-out;
              background-color: transparent; 
         }
 
@@ -209,7 +209,10 @@ header{text-align: center;}
    background: white; /* 선의 색상 */
 }
 
+
+
 /*	footer 바*/
+
 
 footer {padding-top: 10vw;}
 .smalllogo{height: 2vw; padding-bottom: 1vw;}
