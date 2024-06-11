@@ -57,9 +57,61 @@ window.addEventListener('load', () => {
   scrollContainer.dispatchEvent(new Event('scroll'));
 });
 
-
+// Typography scroll interaction
 const typographyItems = document.querySelectorAll('.typography-item');
-const scrollContainerTypography = document.querySelector('.scroll-container-typography');
+const infoContainer = document.querySelector('.info');
+
+infoContainer.addEventListener('wheel', (event) => {
+  event.preventDefault();
+  if (event.deltaY > 0) {
+    scrollToNextItem();
+  } else {
+    scrollToPrevItem();
+  }
+});
+
+function scrollToNextItem() {
+  const currentItem = document.querySelector('.typography-item.active');
+  if (currentItem) {
+    const nextItem = currentItem.nextElementSibling;
+    if (nextItem) {
+      currentItem.classList.remove('active');
+      nextItem.classList.add('active');
+      nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  } else {
+    const firstItem = typographyItems[0];
+    if (firstItem) {
+      firstItem.classList.add('active');
+      firstItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+
+function scrollToPrevItem() {
+  const currentItem = document.querySelector('.typography-item.active');
+  if (currentItem) {
+    const prevItem = currentItem.previousElementSibling;
+    if (prevItem) {
+      currentItem.classList.remove('active');
+      prevItem.classList.add('active');
+      prevItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+
+// Initial check to activate the first typography item on load
+window.addEventListener('load', () => {
+  const firstItem = typographyItems[0];
+  if (firstItem) {
+    firstItem.classList.add('active');
+    firstItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+});
+
+
+const typographyItems = document.querySelectorAll('.typography-item01');
+const scrollContainerTypography = document.querySelector('.scroll-container-typography01');
 
 scrollContainerTypography.addEventListener('scroll', () => {
   const centerX = scrollContainerTypography.scrollLeft + (scrollContainerTypography.clientWidth / 2);
@@ -81,4 +133,3 @@ window.addEventListener('load', () => {
   scrollContainer.dispatchEvent(new Event('scroll'));
   scrollContainerTypography.dispatchEvent(new Event('scroll'));
 });
-

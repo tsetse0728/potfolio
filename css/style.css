@@ -66,9 +66,9 @@
 html, body, h1, h2, h3, p, ul { margin: 0; padding: 0; overflow-x: hidden; }
 body { background: black; color: white; }
 .flex { display: flex; justify-content: space-between; padding-top: 10px; }
-.content { padding-top: 60px; }
 .wrap { padding: 0 100px; margin: auto; }
 .wrap01 { max-width: 100%; margin: auto; padding-right: 50px; }
+.wrap02 {padding: 0px; margin: auto;}
 .content { padding-top: 10vw; }
 section { padding-top: 30vw; }
 
@@ -112,11 +112,14 @@ section { padding-top: 30vw; }
 .middletitle {font-family: 'sofia-pro'; font-size: 1vw; font-weight: 100;}
 
 .title {font-family: 'sofia-pro'; font-size: 1vw; font-weight: 500;}
-
+.title-info {font-family: 'sofia-pro'; font-size: 1vw; font-weight: 500; padding-bottom: 20px;}
 
 .smalltitle {font-family: 'Pretendard-Bold'; font-size: 1vw;}
 .small {font-family: 'Pretendard-Light'; font-size: 1vw;}
+.small-text {font-family: 'Pretendard-Light'; font-size: 1vw; padding-top: 1vw;}
 .ultrasmall {font-family: 'Pretendard-Light'; font-size: 1vw;}
+
+
 
 	/*nav 바*/
 	.navbar {display: flex;
@@ -152,12 +155,18 @@ section { padding-top: 30vw; }
 	.menu li a{display: block; padding: 0vw 2vw 0vw 2vw; color: gray; list-style-type: none; text-decoration: none;}
 	.menu li a:hover{color: white;}
 
+	.typography-item01 {list-style-type: none; text-decoration: none;}
+	.typography-item01 a{color: gray; list-style-type: none; text-decoration: none;}
+	.typography-item01 a:hover{color: white;}
+
 /*헤더*/
 
 
-header { text-align: center; }
 
-.center { display: flex; justify-content: center; align-items: center; }
+
+header {text-align: center;}
+.center {display: flex; justify-content: center; align-items: center;}
+
 
 .circle-container {
 	display: flex;
@@ -205,10 +214,98 @@ header { text-align: center; }
 
 /*info*/
 
-.space {background-image: }
-.info{text-align: center; padding-top: 20vw;}
+.info-container::-webkit-scrollbar {
+    display: none;
+}
 
-.scroll-container-typography {
+/* Hide scrollbar for IE, Edge and Firefox */
+.info-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+
+
+}
+
+.gradient{background: linear-gradient(to bottom, white 0%, black 10%);}
+
+.info {justify-content: center; padding-top: 10vw;}
+.INFO {padding-top: 10vw;}
+.white {background-color: white; color: black;}
+
+.text-center {text-align: center;}
+.center {justify-content: center;}
+
+
+.scroll-container-typography{
+	flex-direction: column;
+	width: 60vw;
+	height: 60vh; /* 한정된 세로 영역 */
+	overflow-y: auto; /* 스크롤 가능 */
+	scroll-snap-type: y mandatory;
+	padding: 20px; /* 내부 여백 */
+	box-sizing: border-box;
+}
+
+.typography-item {
+	flex-shrink: 0;
+	width: 100%; /* 부모 요소의 너비에 맞춤 */
+	height: 10vw; /* 각 항목의 높이 */
+	text-align: center;
+	transition: font-size 0.3s;
+	scroll-snap-align: center;
+	margin: 15vw 0;
+}
+
+.typography-item.active .bigtitle {
+	font-size: 6vw;
+}
+
+.typography-item.active .middletitle {
+	font-size: 3vw;
+}
+
+.spacer1 { height: 50vh; flex-shrink: 0; }
+
+.lens1 {width: 40vw;}
+.info-image{position: relative;}
+.info-text {    position: absolute;
+    top: 50%; /* 수직 중앙에 위치 */
+    left: 50%; /* 수평 중앙에 위치 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 이동 */
+    color: white; /* 텍스트 색상 */
+    text-align: center;}
+
+
+.info-text02 {    position: absolute;
+    top: 90%; /* 수직 중앙에 위치 */
+    left: 50%; /* 수평 중앙에 위치 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 이동 */
+    color: white; /* 텍스트 색상 */
+    text-align: center;}
+
+.info-text03 {    position: absolute;
+    top: 80%; /* 수직 중앙에 위치 */
+    left: 50%; /* 수평 중앙에 위치 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 이동 */
+    color: white; /* 텍스트 색상 */
+    text-align: center;}
+
+.info-text04 {    position: absolute;
+    top: 90%; /* 수직 중앙에 위치 */
+    left: 50%; /* 수평 중앙에 위치 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 이동 */
+    color: white; /* 텍스트 색상 */
+    text-align: center;}
+
+
+/*아카이브*/
+
+
+.archive{text-align: center; padding-bottom: 20px;}
+.picker {height: 3vw; padding-bottom: 1vw; padding-top: 1vw; justify-content: center;}
+
+.scroll-container01 {
 	display: flex;
 	width: 100vw;
 	height: 100%;
@@ -218,7 +315,17 @@ header { text-align: center; }
 	align-items: center;
 }
 
-.typography-item {
+.scroll-container-typography01 {
+	display: flex;
+	width: 100vw;
+	height: 100%;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	justify-content: center;
+	align-items: center;
+}
+
+.typography-item01 {
 	flex-shrink: 0;
 	width: 20vw;
 	text-align: center;
@@ -227,23 +334,26 @@ header { text-align: center; }
 	margin: 0 20px;
 }
 
-.typography-item.active .bigtitle {
+.typography-item01.active .bigtitle {
 	font-size: 5vw;
 }
 
-.typography-item.active .middletitle {
+.typography-item01.active .middletitle {
 	font-size: 2.5vw;
 }
 
 
-/*archive*/
-
-.archive{text-align: center;}
-.picker {height: 3vw; padding-bottom: 1vw;}
-
+.archive-image {text-align: center; padding-bottom: 20px; padding-top: 20px;}
+.invert-colors {
+    filter: invert(100%);
+}
+.planet{width: 100%;}
 
 
 /*그리드*/
+
+
+
 
 .background, .ruler {
   pointer-events: none;
@@ -264,9 +374,9 @@ header { text-align: center; }
   background: #fff;
 }
 
-
 .ruler.ruler-top {
-  top: 0;}
+  top: 0;
+}
 
 .underline-border {
    width: 100%;
@@ -274,10 +384,9 @@ header { text-align: center; }
    background: white; /* 선의 색상 */
 }
 
-
 /*	footer 바*/
 
-footer {padding-top: 10vw;}
+footer {padding-top: 10vw; padding-bottom: 10vw;}
 .smalllogo{height: 2vw; padding-bottom: 1vw;}
 .footerpadding01 {padding-bottom: 2vw;}
 .footerpadding {padding-top: 2vw;}
